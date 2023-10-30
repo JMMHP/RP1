@@ -1,37 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Portable Detection Systems</title>
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instrument Selector</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Typical Portable Detection Systems in Use at Nuclear Power Stations</h1>
-<table border="1">
+<div class="container mt-4">
+<h2>Select Type of Survey</h2>
+<select id="surveyType" class="form-control mb-4">
+<option value="all">All</option>
+<option value="General area neutron dose rate surveys">General area neutron dose rate surveys</option>
+<!-- Add other survey types here -->
+</select>
+<table class="table table-bordered">
 <thead>
 <tr>
 <th>Manufacturer</th>
-<th>Model(s)</th>
+<th>Model</th>
 <th>Detector Type</th>
 <th>Typical Use</th>
 <th>Typical Range</th>
-<th>Notes and Special Considerations</th>
-<th>Image</th>
+<th>Notes/Special Considerations</th>
+<!-- Add Image column if you have image data -->
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>Ludlum</td>
-<td>12-4</td>
-<td>Internal He3 Proportional Counter</td>
-<td>General area neutron dose rate surveys</td>
-<td>4 Ranges 0 to 10,000 mRem/hr</td>
-<td>Instrument provides gamma background rejection up to 12 R/hr.</td>
-<td>ImagePlaceholder</td>
-</tr>
-<!-- Repeat for each instrument as per the example above -->
+<tbody id="instrumentTable">
+<!-- Rows of instrument data will go here -->
 </tbody>
 </table>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+   // Sample data, you should add all the instruments here
+   const instruments = [
+       {
+           Manufacturer: 'Ludlum',
+           Model: '12-4',
+           DetectorType: 'Internal He3 Proportional Counter',
+           TypicalUse: 'General area neutron dose rate surveys',
+           Range: '0 to 10,000 mRem/hr',
+           Notes: 'Instrument provides gamma background rejection up to 12 R/hr.',
+           // Image: 'path_to_image'  // If you have image data
+       },
+       //... add other instruments
+   ];
+   function filterInstruments() {
+       let type = $("#surveyType").val();
+       let filtered = (type === 'all') ? instruments : instruments.filter(inst => inst.TypicalUse === type);
+       displayInstruments(filtered);
+   }
+   function displayInstruments(data) {
+       let rows = '';
+       data.forEach(inst => {
+           rows += `<tr>
+<td>${inst.Manufacturer}</td>
+<td>${inst.Model}</td>
+<td>${inst.DetectorType}</td>
+<td>${inst.TypicalUse}</td>
+<td>${inst.Range}</td>
+<td>${inst.Notes}</td>
+</tr>`;
+       });
+       $("#instrumentTable").html(rows);
+   }
+   $("#surveyType").change(filterInstruments);
+   filterInstruments();  // Load instruments initially
+</script>
 </body>
 </html>
