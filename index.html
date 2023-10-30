@@ -45,7 +45,15 @@
            Notes: 'Instrument provides gamma background rejection up to 12 R/hr.',
            // Image: 'path_to_image'  // If you have image data
        },
-       //... add other instruments
+       {
+           Manufacturer: 'Ludlum',
+           Model: '14-C',
+           DetectorType: 'GM',
+           TypicalUse: 'External pancake probe used for beta/gamma contamination monitoring.',
+           Range: 'Internal Probe: 5 ranges 0 to 2 R/h and External Probe: 4 Ranges 0 to 660K cpm',
+           Notes: 'Ensure that the selector switch is set to the correct detector (i.e. internal vs. external) to ensure proper result.',
+           // Image: 'path_to_image'  // If you have image data
+       },       //... add other instruments
    ];
    function filterInstruments() {
        let type = $("#surveyType").val();
