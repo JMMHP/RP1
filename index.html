@@ -45,7 +45,7 @@
            Notes: 'Instrument provides gamma background rejection up to 12 R/hr.',
            // Image: 'path_to_image'  // If you have image data
        },
-       {
+        {
            Manufacturer: 'Ludlum',
            Model: '14-C',
            DetectorType: 'GM',
@@ -53,7 +53,34 @@
            Range: 'Internal Probe: 5 ranges 0 to 2 R/h and External Probe: 4 Ranges 0 to 660K cpm',
            Notes: 'Ensure that the selector switch is set to the correct detector (i.e. internal vs. external) to ensure proper result.',
            // Image: 'path_to_image'  // If you have image data
-       },       //... add other instruments
+       },
+       {
+           Manufacturer: 'Ludlum',
+           Model: '177',
+           DetectorType: 'GM',
+           TypicalUse: 'External Pancake GM Detector for count rate monitoring of Beta + Gamma',
+           Range: '0 cpm - 500k cpm',
+           Notes: 'Due to instrument dead time, rapid successive measurements may not be detected or processed accurately.',
+           // Image: 'path_to_image'  // If you have image data
+       },
+       {
+           Manufacturer: 'Ludlum',
+           Model: '3',
+           DetectorType: 'GM or external pancake probe',
+           TypicalUse: 'Portable External Pancake GM Detector for count rate monitoring',
+           Range: '4 Ranges 0 to 500K cpm with pancake probe or 0-200mR/hr with GM tube probe.,
+           Notes: 'Battery Powered. Due to instrument dead time, rapid successive measurements may not be detected or processed accurately.',
+           // Image: 'path_to_image'  // If you have image data
+       },
+       {
+           Manufacturer: 'Ludlum',
+           Model: '9-7',
+           DetectorType: 'Ion Chamber',
+           TypicalUse: 'Beta + Gamma dose rates',
+           Range: 'LOW: 0.001 – 1.99 R/hr MID:0.1 - 199.9 R/hr HIGH: 0.01 - 19.9 KR/hr ,
+           Notes: 'Can be used with low, mid, and high range probes. Digital readout. Similar controls to RO-7',
+           // Image: 'path_to_image'  // If you have image data
+       },//... add other instruments
    ];
    function filterInstruments() {
        let type = $("#surveyType").val();
